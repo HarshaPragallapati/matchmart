@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(131deg, rgba(186, 186, 186, 0.01) 0%, rgba(186, 186, 186, 0.01) 16.667%,rgba(192, 192, 192, 0.01) 16.667%, rgba(192, 192, 192, 0.01) 33.334%,rgba(48, 48, 48, 0.01) 33.334%, rgba(48, 48, 48, 0.01) 50.001000000000005%,rgba(33, 33, 33, 0.01) 50.001%, rgba(33, 33, 33, 0.01) 66.668%,rgba(182, 182, 182, 0.01) 66.668%, rgba(182, 182, 182, 0.01) 83.33500000000001%,rgba(211, 211, 211, 0.01) 83.335%, rgba(211, 211, 211, 0.01) 100.002%),linear-gradient(148deg, rgba(48, 48, 48, 0.01) 0%, rgba(48, 48, 48, 0.01) 16.667%,rgba(178, 178, 178, 0.01) 16.667%, rgba(178, 178, 178, 0.01) 33.334%,rgba(192, 192, 192, 0.01) 33.334%, rgba(192, 192, 192, 0.01) 50.001000000000005%,rgba(237, 237, 237, 0.01) 50.001%, rgba(237, 237, 237, 0.01) 66.668%,rgba(194, 194, 194, 0.01) 66.668%, rgba(194, 194, 194, 0.01) 83.33500000000001%,rgba(227, 227, 227, 0.01) 83.335%, rgba(227, 227, 227, 0.01) 100.002%),linear-gradient(138deg, rgba(146, 146, 146, 0.03) 0%, rgba(146, 146, 146, 0.03) 25%,rgba(33, 33, 33, 0.03) 25%, rgba(33, 33, 33, 0.03) 50%,rgba(46, 46, 46, 0.03) 50%, rgba(46, 46, 46, 0.03) 75%,rgba(172, 172, 172, 0.03) 75%, rgba(172, 172, 172, 0.03) 100%),linear-gradient(38deg, rgba(3, 3, 3, 0.03) 0%, rgba(3, 3, 3, 0.03) 16.667%,rgba(28, 28, 28, 0.03) 16.667%, rgba(28, 28, 28, 0.03) 33.334%,rgba(236, 236, 236, 0.03) 33.334%, rgba(236, 236, 236, 0.03) 50.001000000000005%,rgba(3, 3, 3, 0.03) 50.001%, rgba(3, 3, 3, 0.03) 66.668%,rgba(207, 207, 207, 0.03) 66.668%, rgba(207, 207, 207, 0.03) 83.33500000000001%,rgba(183, 183, 183, 0.03) 83.335%, rgba(183, 183, 183, 0.03) 100.002%),linear-gradient(145deg, rgba(20, 20, 20, 0.02) 0%, rgba(20, 20, 20, 0.02) 20%,rgba(4, 4, 4, 0.02) 20%, rgba(4, 4, 4, 0.02) 40%,rgba(194, 194, 194, 0.02) 40%, rgba(194, 194, 194, 0.02) 60%,rgba(34, 34, 34, 0.02) 60%, rgba(34, 34, 34, 0.02) 80%,rgba(71, 71, 71, 0.02) 80%, rgba(71, 71, 71, 0.02) 100%),linear-gradient(78deg, rgba(190, 190, 190, 0.02) 0%, rgba(190, 190, 190, 0.02) 20%,rgba(95, 95, 95, 0.02) 20%, rgba(95, 95, 95, 0.02) 40%,rgba(71, 71, 71, 0.02) 40%, rgba(71, 71, 71, 0.02) 60%,rgba(7, 7, 7, 0.02) 60%, rgba(7, 7, 7, 0.02) 80%,rgba(130, 130, 130, 0.02) 80%, rgba(130, 130, 130, 0.02) 100%),linear-gradient(293deg, rgba(213, 213, 213, 0.03) 0%, rgba(213, 213, 213, 0.03) 20%,rgba(220, 220, 220, 0.03) 20%, rgba(220, 220, 220, 0.03) 40%,rgba(146, 146, 146, 0.03) 40%, rgba(146, 146, 146, 0.03) 60%,rgba(57, 57, 57, 0.03) 60%, rgba(57, 57, 57, 0.03) 80%,rgba(120, 120, 120, 0.03) 80%, rgba(120, 120, 120, 0.03) 100%),linear-gradient(90deg, rgb(225, 15, 180),rgb(78, 198, 243));
+            color: #333;
+            min-height: 100vh;
+            padding: 30px;
+        }
+
+        h2 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .order-box {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+        }
+
+        .order-box h4 {
+            color: #6A0D91; /* Matching the purple tone used in other parts of your theme */
+        }
+
+        .order-box p {
+            color: #333333;
+            font-size: 15px;
+        }
+
+        .price-input {
+            display: none; /* Hidden by default */
+            margin-top: 10px;
+        }
+
+        .btn-accept, .btn-reject, .btn-confirm, .btn-cancel {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .btn-accept {
+            background-color: #28a745; /* Green for accept */
+        }
+
+        .btn-reject {
+            background-color: #dc3545; /* Red for reject */
+        }
+
+        .btn-confirm, .btn-cancel {
+            background-color: #6A0D91; /* Theme-matching purple for confirm/cancel */
+        }
+
+        .btn-cancel {
+            background-color: #ff6347; /* A different color (tomato red) for cancel */
+        }
+
+        .btn-accept:hover, .btn-reject:hover, .btn-confirm:hover, .btn-cancel:hover {
+            opacity: 0.9;
+            transform: scale(1.02); /* Slight scaling effect on hover for buttons */
+        }
+
+        .form-control {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-shadow: none;
+        }
+
+        .form-control:focus {
+            border-color: #6A0D91;
+            outline: none;
+            box-shadow: 0 0 5px rgba(106, 13, 145, 0.5); /* Purple border glow on focus */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Vendor Orders</h2>
+
+        <!-- Loop through the orders using Jinja2 -->
+        {% for key, value in orders.items() %}
+            <div class="order-box" id="order-{{ key }}">
+                <h4>Order #{{ key }}</h4>
+                <p><strong>Type:</strong> {{ value[0] }}</p>
+                <p><strong>Product:</strong> {{ value[1] }}</p>
+                <p><strong>Place:</strong> {{ value[2] }}</p>
+
+                <!-- Action buttons -->
+                <button class="btn-accept" onclick="acceptOrder({{ key }})">Accept</button>
+                <button class="btn-reject" onclick="rejectOrder({{ key }})">Reject</button>
+
+                <!-- Price input form (initially hidden) -->
+                <form action="/pushdetailstodb" method="POST" class="price-input" id="price-input-{{ key }}">
+                    <input type="hidden" name="order_id" value="{{ key }}">
+                    <input type="number" class="form-control" name="price" placeholder="Enter your price" required>
+                    <button type="submit" class="btn-confirm">Confirm</button>
+                    <button type="button" class="btn-cancel" onclick="cancelOrder({{ key }})">Cancel</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        // Show the price input when "Accept" is clicked
+        function acceptOrder(orderId) {
+            document.getElementById('price-input-' + orderId).style.display = 'block';
+        }
+
+        // Remove the order from the page when "Reject" is clicked
+        function rejectOrder(orderId) {
+            document.getElementById('order-' + orderId).remove();
+            alert('Order ' + orderId + ' has been rejected.');
+            // Optionally, add logic to update the backend
+        }
+
+        // Hide the price input when "Cancel" is clicked
+        function cancelOrder(orderId) {
+            document.getElementById('price-input-' + orderId).style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
